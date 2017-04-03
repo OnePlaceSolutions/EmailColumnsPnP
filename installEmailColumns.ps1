@@ -12,7 +12,7 @@ try {
     Write-Host "Downloading" $Path -ForegroundColor Green 
     $Url = "https://raw.githubusercontent.com/OnePlaceSolutions/EmailColumnsPnP/master/email-columns.xml" 
     
-    $Path = "$env:temp\EmailColumns.xml" 
+    $Path = "$env:temp\emailcolumns.xml"
     $WebClient.DownloadFile( $Url, $Path ) 
   
     #(New-Object Net.WebClient).DownloadFile('https://raw.githubusercontent.com/OnePlaceSolutions/EmailColumnsPnP/master/email-columns.xml', '.\EmailColumns.xml')
