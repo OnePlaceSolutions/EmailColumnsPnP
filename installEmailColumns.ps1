@@ -5,17 +5,19 @@
         and then applies the email columns template to this site collection        
 #>
 
-try {       
+try {
+    Set-ExecutionPolicy Bypass -Scope Process       
     $SharePointUrl = Read-Host -Prompt 'Enter your SharePoint Site Collection Url to install OnePlace Solutions Email Columns to'
     Connect-pnpOnline -url $SharePointUrl
     $WebClient = New-Object System.Net.WebClient
-    Write-Host "Downloading" $Path -ForegroundColor Green 
-    $Url = "https://raw.githubusercontent.com/OnePlaceSolutions/EmailColumnsPnP/master/email-columns.xml" 
-    
+   
+    $Url = "https://raw.githubusercontent.com/OnePlaceSolutions/EmailColumnsPnP/master/email-columns.xml"    
     $Path = "$env:temp\emailcolumns.xml"
+    Write-Host "Downloading provisioning xml template:" $Path -ForegroundColor Green 
     $WebClient.DownloadFile( $Url, $Path ) 
   
     #(New-Object Net.WebClient).DownloadFile('https://raw.githubusercontent.com/OnePlaceSolutions/EmailColumnsPnP/master/email-columns.xml', '.\EmailColumns.xml')
+    Write-Host "Applying email columns template to SharePoint:" $Url -ForegroundColor Green 
     Apply-PnPProvisioningTemplate -path $Path
    
 }
