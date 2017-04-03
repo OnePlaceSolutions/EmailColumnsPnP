@@ -10,11 +10,11 @@ try {
     $WebClient = New-Object System.Net.WebClient
     Write-Host "Downloading" $Path -ForegroundColor Green 
     $Url = "https://raw.githubusercontent.com/OnePlaceSolutions/EmailColumnsPnP/master/email-columns.xml" 
-    $Path = ".\EmailColumns.xml" 
+    $Path = "C:\EmailColumns.xml" 
     $WebClient.DownloadFile( $url, $path ) 
     Connect-pnpOnline -url $SharePointUrl
     #(New-Object Net.WebClient).DownloadFile('https://raw.githubusercontent.com/OnePlaceSolutions/EmailColumnsPnP/master/email-columns.xml', '.\EmailColumns.xml')
-    Apply-PnPProvisioningTemplate -path ".\EmailColumns.xml"
+    Apply-PnPProvisioningTemplate -path "C:\EmailColumns.xml"
    
 }
 catch {
