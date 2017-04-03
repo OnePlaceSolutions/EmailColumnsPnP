@@ -11,11 +11,12 @@ try {
     $WebClient = New-Object System.Net.WebClient
     Write-Host "Downloading" $Path -ForegroundColor Green 
     $Url = "https://raw.githubusercontent.com/OnePlaceSolutions/EmailColumnsPnP/master/email-columns.xml" 
-    $Path = "C:\temp\EmailColumns.xml" 
+    
+    $Path = "$env:temp\EmailColumns.xml" 
     $WebClient.DownloadFile( $Url, $Path ) 
   
     #(New-Object Net.WebClient).DownloadFile('https://raw.githubusercontent.com/OnePlaceSolutions/EmailColumnsPnP/master/email-columns.xml', '.\EmailColumns.xml')
-    Apply-PnPProvisioningTemplate -path "C:\temp\EmailColumns.xml"
+    Apply-PnPProvisioningTemplate -path $Path
    
 }
 catch {
