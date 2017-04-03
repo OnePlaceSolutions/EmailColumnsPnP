@@ -7,14 +7,15 @@
 
 try {       
     $SharePointUrl = Read-Host -Prompt 'Enter your SharePoint Site Collection Url to install OnePlace Solutions Email Columns to'
+    Connect-pnpOnline -url $SharePointUrl
     $WebClient = New-Object System.Net.WebClient
     Write-Host "Downloading" $Path -ForegroundColor Green 
     $Url = "https://raw.githubusercontent.com/OnePlaceSolutions/EmailColumnsPnP/master/email-columns.xml" 
-    $Path = "C:\EmailColumns.xml" 
-    $WebClient.DownloadFile( $url, $path ) 
-    Connect-pnpOnline -url $SharePointUrl
+    $Path = "C:\temp\EmailColumns.xml" 
+    $WebClient.DownloadFile( $Url, $Path ) 
+  
     #(New-Object Net.WebClient).DownloadFile('https://raw.githubusercontent.com/OnePlaceSolutions/EmailColumnsPnP/master/email-columns.xml', '.\EmailColumns.xml')
-    Apply-PnPProvisioningTemplate -path "C:\EmailColumns.xml"
+    Apply-PnPProvisioningTemplate -path "C:\temp\EmailColumns.xml"
    
 }
 catch {
