@@ -5,12 +5,12 @@
         and then applies the email columns template to this site collection        
 #>
 
-try {
-    #Invoke-Expression (New-Object Net.WebClient).DownloadString('https://raw.githubusercontent.com/OfficeDev/PnP-PowerShell/master/Samples/Modules.Install/Install-SharePointPnPPowerShell.ps1')
+try {   
     $SharePointUrl = Read-Host -Prompt 'Enter your SharePoint Site Collection Url to install OnePlace Solutions Email Columns to'
     Connect-pnpOnline -url $SharePointUrl
-    Apply-PnPProvisioningTemplate -path email-columns.xml 
-    Read-Host -Prompt "Press Enter to exit"
+    (New-Object Net.WebClient).DownloadFile('https://raw.githubusercontent.com/OnePlaceSolutions/EmailColumnsPnP/master/email-columns.xml', '.\EmailColumns.xml')
+    Apply-PnPProvisioningTemplate -path ".\EmailColumns.xml"
+   
 }
 catch {
     Write-Host $error[0].Message
