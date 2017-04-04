@@ -12,11 +12,11 @@ try {
     #Download xml provisioning template
     $WebClient = New-Object System.Net.WebClient   
     $Url = "https://raw.githubusercontent.com/OnePlaceSolutions/EmailColumnsPnP/master/email-columns.xml"    
-    $Path = "$env:temp\emailcolumns.xml"
+    $Path = "$env:temp\email-columns.xml"
 
     Write-Host "Downloading provisioning xml template:" $Path -ForegroundColor Green 
     $WebClient.DownloadFile( $Url, $Path )   
-    #Applyxml provisioning template to SharePoint
+    #Apply xml provisioning template to SharePoint
     Write-Host "Applying email columns template to SharePoint:" $SharePointUrl -ForegroundColor Green 
     Apply-PnPProvisioningTemplate -path $Path
    
