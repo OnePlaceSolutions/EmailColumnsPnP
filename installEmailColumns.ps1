@@ -6,7 +6,8 @@
 #>
 
 try {    
-    Set-ExecutionPolicy Bypass -Scope Process       
+    Set-ExecutionPolicy Bypass -Scope Process 
+    #Prompt for SharePoint Url     
     $SharePointUrl = Read-Host -Prompt 'Enter your SharePoint Site Collection Url to install OnePlace Solutions Email Columns to'
     Connect-pnpOnline -url $SharePointUrl
     #Download xml provisioning template
