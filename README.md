@@ -8,7 +8,7 @@ SharePoint Patterns and Practices (PnP) PowerShell cmdlets.
 Pre-requisites
 --------------
 
-1.  SharePoint Online, SharePoint 2016 on-premise, SharePoint 201
+1.  SharePoint Online, SharePoint 2016 on-premise, SharePoint 2013
     on-premise.
 
 2.  PowerShell v3.0 or greater installed on the machine. Windows 10/8.1
