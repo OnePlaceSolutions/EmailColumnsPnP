@@ -9,7 +9,17 @@ try {
     Set-ExecutionPolicy Bypass -Scope Process 
     #Prompt for SharePoint Url     
     $SharePointUrl = Read-Host -Prompt 'Enter your SharePoint Site Collection Url to install OnePlace Solutions Email Columns to'
-    Connect-pnpOnline -url $SharePointUrl
+    
+    #Connect to site collection
+    If($SharePointUrl -match ".sharepoint.com/"){
+        Write-Host "Enter SharePoint credentials(your email address for SharePoint Online):" -ForegroundColor Green  
+        Connect-pnpOnline -url $SharePointUrl -UseWebLogin
+    }
+    Else{
+        Write-Host "Enter SharePoint credentials(domain\username for on-premise):" -ForegroundColor Green  
+        Connect-pnpOnline -url $SharePointUrl 
+    }
+
     #Download xml provisioning template
     $WebClient = New-Object System.Net.WebClient   
     $Url = "https://raw.githubusercontent.com/OnePlaceSolutions/EmailColumnsPnP/master/email-columns.xml"    
