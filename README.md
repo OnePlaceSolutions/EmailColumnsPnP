@@ -1,14 +1,14 @@
 Deploy OnePlace Solutions Email Columns to a Site Collection
 ============================================================
 
-This document the steps to deploy the OnePlace Solutions Email Columns
+This document describes the steps to deploy the OnePlace Solutions Email Columns
 to a site collection. The deployment requires the use of PowerShell and
 SharePoint Patterns and Practices (PnP) PowerShell cmdlets.
 
 Pre-requisites
 --------------
 
-1.  SharePoint Online, SharePoint 2016 on-premise, SharePoint 2013
+1.  SharePoint Online, SharePoint 2019 on-premise, SharePoint 2016 on-premise, or SharePoint 2013
     on-premise.
 
 2.  PowerShell v3.0 or greater installed on the machine. Windows 10/8.1
@@ -22,7 +22,7 @@ Pre-requisites
 
     ![](./README-Images/image1.png)
 
-3.  Install the SharePoint PnP PowerShell cmdlets installed on the
+3.  Install the SharePoint PnP PowerShell cmdlets on your
     machine. You need to install the correct version of the cmdlets to
     target your version of SharePoint. Install the latest release msi
     files from here (new updates are applied monthly to the msi files):
