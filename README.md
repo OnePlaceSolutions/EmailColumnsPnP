@@ -45,14 +45,14 @@ Installing Email Columns to SharePoint
 2.  Copy and paste the following command into your PowerShell command
     window and hit enter:
 
-> **Invoke-Expression (New-Object
-> Net.WebClient).DownloadString(‘https://raw.githubusercontent.com/OnePlaceSolutions/EmailColumnsPnP/master/installEmailColumns.ps1’)**
->
-> Copy the text above, then in the PowerShell window right click at the
-> cursor and the command will be pasted into the window, then hit the
-> enter key to execute the command:
+    > **Invoke-Expression (New-Object
+    > Net.WebClient).DownloadString(‘https://raw.githubusercontent.com/OnePlaceSolutions/EmailColumnsPnP/master/installEmailColumns.ps1’)**
+    >
+    > Copy the text above, then in the PowerShell window right click at the
+    > cursor and the command will be pasted into the window, then hit the
+    > enter key to execute the command:
 
-![](./README-Images/image5.png)
+    ![](./README-Images/image5.png)
 
 3.  The PowerShell script will execute and prompt you to enter the Site
     Collection Url for the Site Collection you wish to deploy the Email
