@@ -35,6 +35,11 @@ install the msi file:
 
 ![](./README-Images/image3.png)
 
+Offline Scripting
+--------------------------------------
+
+If you have limited ability to run scripts from the internet in your environment, please download EmailColumnsPnPOfflineBundle.zip above from this repo and extract all contents to one folder. Run the PowerShell script from that folder and it will recognize the XML file containing the Email Columns configuration is present. You can then continue from Step 3 below.
+
 Installing Email Columns to SharePoint
 --------------------------------------
 
