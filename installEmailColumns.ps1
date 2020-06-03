@@ -30,7 +30,8 @@ try {
     #Apply xml provisioning template to SharePoint
     Write-Host "Applying email columns template to SharePoint:" $SharePointUrl -ForegroundColor Green 
     Apply-PnPProvisioningTemplate -path $Path
-   
+    Write-Host "`nSuccess! Please add the new columns to your Email Content Type." -ForegroundColor Green
+    Write-Host "Exiting script." -ForegroundColor Yellow
 }
 catch {
     Write-Host $error[0].Message
