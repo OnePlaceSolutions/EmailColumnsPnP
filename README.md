@@ -5,7 +5,7 @@ This document describes the steps to deploy the OnePlace Solutions Email Columns
 to a site collection. The deployment requires the use of PowerShell and
 SharePoint Patterns and Practices (PnP) PowerShell cmdlets.
 
-This script does **not** deploy Content Types. For Deploying Email Columns and Content Types simultaneously please see [ContentTypesDeploymentPnP](https://github.com/OnePlaceSolutions/ContentTypeDeploymentPnP).
+This script does **not** deploy Content Types. For Deploying Email Columns and Content Types simultaneously please see [ContentTypeDeploymentPnP](https://github.com/OnePlaceSolutions/ContentTypeDeploymentPnP).
 
 Pre-requisites
 --------------
