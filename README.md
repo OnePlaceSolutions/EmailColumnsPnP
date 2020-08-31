@@ -28,7 +28,8 @@ Pre-requisites
     machine. You need to install the correct version of the cmdlets to
     target your version of SharePoint. Install the June 2020 release msi
     files from here:
-    <https://github.com/pnp/PnP-PowerShell/releases/tag/3.22.2006.2>.
+    <https://github.com/pnp/PnP-PowerShell/releases/tag/3.22.2006.2>.\
+    *31/8/2020 - There is a bug in the current release of the PnP Cmdlets that interupts deployment, so we only advise using the June 2020 release at this time.*
 
 You will need to logon as a local Administrator to your machine to
 install the msi file:
