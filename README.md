@@ -31,12 +31,15 @@ Pre-requisites
     <https://github.com/pnp/PnP-PowerShell/releases/tag/3.22.2006.2>.\
     *31/8/2020 - There is a bug in the current release of the PnP Cmdlets that interupts deployment, so we only advise using the June 2020 release at this time.*
 
-You will need to logon as a local Administrator to your machine to
-install the msi file:
+    You will need to logon as a local Administrator to your machine to
+    install the msi file:
 
-![](./README-Images/image2.png)
+    ![](./README-Images/image2.png)
 
-![](./README-Images/image3.png)
+    ![](./README-Images/image3.png)
+
+4.  (Optional, SharePoint Online Only) Content Type Hub Administrator Access
+    If you wish to use the Email Site Columns in a Site Content Type deployed using the [Content Type Gallery in SharePoint Online](https://docs.microsoft.com/en-us/sharepoint/create-customize-content-type), you will need Administrative permissions on the Site Collection that supports this feature at 'https://<yourTenant>.sharepoint.com/sites/contenttypehub'. You can then enter this Site Collection URL in Step 3 of the script and continue on to using the Content Type Gallery after the script has finished.
 
 Offline Scripting
 --------------------------------------
