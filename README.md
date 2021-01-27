@@ -24,20 +24,31 @@ Pre-requisites
 
     ![](./README-Images/image1.png)
 
-3.  Install the SharePoint PnP PowerShell cmdlets on your
-    machine. You need to install the correct version of the cmdlets to
-    target your version of SharePoint. Install the June 2020 release msi
-    files from here:
-    <https://github.com/pnp/PnP-PowerShell/releases/tag/3.22.2006.2>.\
-    *31/8/2020 - There is a bug in the current release of the PnP Cmdlets that interupts deployment, so we only advise using the June 2020 release at this time.*
+3.  (SharePoint On-Premise Only) [The SharePoint PnP PowerShell cmdlets](https://docs.microsoft.com/en-us/powershell/sharepoint/sharepoint-pnp/sharepoint-pnp-cmdlets?view=sharepoint-ps). You will need to install only the the cmdlets that target your version of SharePoint on the machine you are running the script from. If you have installed the cmdlets previously using an MSI file these need to be uninstalled from Control Panel, but if you have installed the cmdlets previously using PowerShell Get you can update them with this command:
+    ```
+    Update-Module SharePointPnPPowerShell<version>
+    ```
+    
+    This is the command pictured to install the PnP Cmdlets via PowerShell Get:
+    ```
+    Install-Module SharePointPnPPowerShell<version>
+    ```
+    > ![](./README-Images/installPnPClassic.png)
 
-    You will need to logon as a local Administrator to your machine to
-    install the msi file:
+5.  (SharePoint Online Only) (Multi-Tenant supported) [The latest PnP.PowerShell](https://pnp.github.io/powershell/articles/installation.html) installed on the machine you are running the script from. You can run the below command in PowerShell (as Administrator) to install it. 
 
-    ![](./README-Images/image2.png)
+    Install new PnP.PowerShell Cmdlets:
+    ```
+    Install-Module -Name "PnP.PowerShell"
+    ```
+    Note that you will need to ensure you have uninstalled any previous 'Classic' PnP Cmdlets prior to installing this. If you have installed the cmdlets previously using an MSI file these need to be uninstalled from Control Panel, but if you have installed the cmdlets previously using PowerShell Get you can uninstall them with this command (as Administrator):
 
-    ![](./README-Images/image3.png)
-
+    ```
+    Uninstall-Module 'SharePointPnPPowerShellOnline'
+    ```
+    
+    *PnP Management Shell access does not need to be granted for this script, as it is operating in 'single site mode'.*
+    
 4.  (Optional, SharePoint Online Only) Content Type Hub Administrator Access
     If you wish to use the Email Site Columns in a Site Content Type deployed using the [Content Type Gallery in SharePoint Online](https://docs.microsoft.com/en-us/sharepoint/create-customize-content-type), you will need Administrative permissions on the Site Collection that supports this feature at 'https://<yourTenant>.sharepoint.com/sites/contenttypehub'. You can then enter this Site Collection URL in Step 3 of the script and continue on to using the Content Type Gallery after the script has finished.
 
