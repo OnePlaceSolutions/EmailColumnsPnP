@@ -4,6 +4,7 @@
         The script then prompts for the site collection URL you wish to install the Email Columns to
         and then applies the email columns template to this site collection        
 #>
+$ErrorActionPreference = 'Stop'
 
 try {    
     Set-ExecutionPolicy Bypass -Scope Process 
@@ -30,7 +31,7 @@ try {
     #Apply xml provisioning template to SharePoint
     Write-Host "Applying email columns template to SharePoint:" $SharePointUrl -ForegroundColor Green 
     Apply-PnPProvisioningTemplate -path $Path
-    Write-Host "`nSuccess! Please add the new columns to your Email Content Type." -ForegroundColor Green
+    Write-Host "`nDeployment complete! Please add the new columns to your Email Content Type." -ForegroundColor Green
     Write-Host "Exiting script." -ForegroundColor Yellow
 }
 catch {
