@@ -3,6 +3,7 @@
         and then applies the email columns template to this site collection.
         This is compatible with both classic PnP cmdlets and the new PnP.PowerShell cmdlets for SharePoint Online (no App consent required)   
 #>
+$ErrorActionPreference = 'Stop'
 
 Try {    
     Set-ExecutionPolicy Bypass -Scope Process 
@@ -36,6 +37,7 @@ Try {
     $WebClient.DownloadFile( $Url, $Path )   
     #Apply xml provisioning template to SharePoint
     Write-Host "Applying email columns template to SharePoint:" $SharePointUrl -ForegroundColor Green 
+    
     If($PnP_PowerShell) {
         Invoke-PnPSiteTemplate -Path $Path -Handlers 'Fields' -WarningAction Ignore
     }
