@@ -1,53 +1,57 @@
-Deploy OnePlace Solutions Email Columns to a Site Collection
-============================================================
+# EmailColumnsPnP ReadMe
 
 This document describes the steps to deploy the OnePlace Solutions Email Columns
 to a site collection. The deployment requires the use of PowerShell and
-SharePoint Patterns and Practices (PnP) PowerShell cmdlets.
+SharePoint Patterns and Practices (PnP) PowerShell cmdlets, or the new PnP.PowerShell cmdlets.
 
 This script does **not** deploy Content Types. For Deploying Email Columns and Content Types simultaneously please see [ContentTypeDeploymentPnP](https://github.com/OnePlaceSolutions/ContentTypeDeploymentPnP).
 
-Pre-requisites
---------------
+## Pre-requisites
 
-1.  SharePoint Online, SharePoint 2019 on-premise, SharePoint 2016 on-premise, or SharePoint 2013
-    on-premise.
+1.  Have either of the following SharePoint environments: SharePoint Online, SharePoint 2019 on-premises, SharePoint 2016 on-premises, SharePoint 2013 on-premises.
 
-2.  PowerShell v3.0 or greater installed on the machine. Windows 10/8.1
-    and Windows Server 2012 and greater are all ready to go. Windows 7
-    is preinstalled with v2.0 of PowerShell. PowerShell needs to be
-    upgraded on Windows 7 machines. This can be done by downloading and
-    installing the Windows Management Framework 4.0 from here:
-    <https://www.microsoft.com/en-au/download/details.aspx?id=40855> .
-    Download and install either the x64 or x86 version based on your
-    version of Windows 7:
+2.  PowerShell v3.0 or greater installed on your work environment. 
 
-    ![](./README-Images/image1.png)
+    If you are using Windows 10/8.1/Server 2012 you will already have a compatible version of PowerShell and can skip this point.
+    
+    If you are using Windows 7, this is preinstalled with PowerShell v2.0 and will need to be  upgraded. This can be done by [downloading and installing the Windows Management Framework 4.0](https://www.microsoft.com/en-au/download/details.aspx?id=40855). Download and install either the x64 or x86 version based on your version of Windows 7.
 
-3.  Install the SharePoint PnP PowerShell cmdlets on your
-    machine. You need to install the correct version of the cmdlets to
-    target your version of SharePoint. Install the June 2020 release msi
-    files from here:
-    <https://github.com/pnp/PnP-PowerShell/releases/tag/3.22.2006.2>.\
-    *31/8/2020 - There is a bug in the current release of the PnP Cmdlets that interupts deployment, so we only advise using the June 2020 release at this time.*
+    > ![](./README-Images/image1.png)
 
-    You will need to logon as a local Administrator to your machine to
-    install the msi file:
+3.  (SharePoint On-Premise Only) [The SharePoint PnP PowerShell cmdlets](https://docs.microsoft.com/en-us/powershell/sharepoint/sharepoint-pnp/sharepoint-pnp-cmdlets?view=sharepoint-ps). You will need to install only the the cmdlets that target your version of SharePoint on the machine you are running the script from. If you have installed the cmdlets previously using an MSI file these need to be uninstalled from Control Panel, but if you have installed the cmdlets previously using PowerShell Get you can update them with this command:
+    ```
+    Update-Module SharePointPnPPowerShell<version>
+    ```
+    
+    This is the command pictured to install the PnP Cmdlets via PowerShell Get:
+    ```
+    Install-Module SharePointPnPPowerShell<version>
+    ```
+    > ![](./README-Images/installPnPClassic.png)
 
-    ![](./README-Images/image2.png)
+5.  (SharePoint Online Only) (Multi-Tenant supported) [The latest PnP.PowerShell](https://pnp.github.io/powershell/articles/installation.html) installed on the machine you are running the script from. You can run the below command in PowerShell (as Administrator) to install it. 
 
-    ![](./README-Images/image3.png)
+    Install new PnP.PowerShell Cmdlets:
+    ```
+    Install-Module -Name "PnP.PowerShell"
+    ```
+    Note that you will need to ensure you have uninstalled any previous 'Classic' PnP Cmdlets prior to installing this. If you have installed the cmdlets previously using an MSI file these need to be uninstalled from Control Panel, but if you have installed the cmdlets previously using PowerShell Get you can uninstall them with this command (as Administrator):
 
+    ```
+    Uninstall-Module 'SharePointPnPPowerShellOnline'
+    ```
+    
+    *PnP Management Shell access does not need to be granted for this script, as it is operating in 'single site mode'.*
+    
 4.  (Optional, SharePoint Online Only) Content Type Hub Administrator Access
     If you wish to use the Email Site Columns in a Site Content Type deployed using the [Content Type Gallery in SharePoint Online](https://docs.microsoft.com/en-us/sharepoint/create-customize-content-type), you will need Administrative permissions on the Site Collection that supports this feature at 'https://<yourTenant>.sharepoint.com/sites/contenttypehub'. You can then enter this Site Collection URL in Step 3 of the script and continue on to using the Content Type Gallery after the script has finished.
 
-Offline Scripting
---------------------------------------
+## Offline Scripting
 
 If you have limited ability to run scripts from the internet in your environment, please download  [EmailColumnsPnPOfflineBundle.zip](https://github.com/OnePlaceSolutions/EmailColumnsPnP/raw/master/EmailColumnsPnPOfflineBundle.zip) above from this repo and extract all contents to one folder. Run the PowerShell script from that folder and it will recognize the XML file containing the Email Columns configuration is present. You can then continue from Step 3 below.
 
-Installing Email Columns to SharePoint
---------------------------------------
+## Deploying
+
 
 1.  Start PowerShell on your machine:
 
