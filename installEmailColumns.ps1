@@ -9,17 +9,13 @@ Try {
     Set-ExecutionPolicy Bypass -Scope Process 
     Write-Host "Checking for PnP module..."
     $installedPnPModules = Get-InstalledModule -Name "*PnP*"
-    If($installedPnPModules.Name -eq "PnP.PowerShell") {
-        [boolean]$PnP_PowerShell = $true
-    }
-    Else {
-        [boolean]$PnP_PowerShell = $false
-    }
+    [boolean]$PnP_PowerShell = ($installedPnPModules.Name -eq "PnP.PowerShell") 
+
     #Prompt for SharePoint URL     
     $SharePointUrl = Read-Host -Prompt 'Enter your SharePoint Site Collection URL to install OnePlace Solutions Email Columns to'
     
     #Connect to site collection
-    If(($SharePointUrl -match ".sharepoint.com/") -or $PnP_PowerShell) {
+    If($SharePointUrl -match ".sharepoint.com/") {
         Write-Host "Enter SharePoint credentials (your email address for SharePoint Online):" -ForegroundColor Green  
         Connect-PnPOnline -Url $SharePointUrl -UseWebLogin -WarningAction Ignore
     }
