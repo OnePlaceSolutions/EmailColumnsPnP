@@ -8,9 +8,13 @@ $ErrorActionPreference = 'Stop'
 Try {    
     Set-ExecutionPolicy Bypass -Scope Process 
     Write-Host "Checking for PnP module..."
-    $installedPnPModules = Get-InstalledModule -Name "*PnP*"
-    [boolean]$PnP_PowerShell = ($installedPnPModules.Name -eq "PnP.PowerShell") 
-
+    Try{
+        $installedPnPModules = Get-InstalledModule -Name "*PnP*"
+        [boolean]$PnP_PowerShell = ($installedPnPModules.Name -eq "PnP.PowerShell") 
+    }
+    Catch {
+     $PnP_PowerShell = $false
+    }
     #Prompt for SharePoint URL     
     $SharePointUrl = Read-Host -Prompt 'Enter your SharePoint Site Collection URL to install OnePlace Solutions Email Columns to'
     
