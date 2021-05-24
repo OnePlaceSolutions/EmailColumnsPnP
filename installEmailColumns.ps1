@@ -14,6 +14,8 @@ Try {
     }
     Catch {
         $PnP_PowerShell = $false
+        Write-Host "No PnP Cmdlets detected. Please check pre-requisites before continuing." -ForegroundColor Yellow
+        Pause
     }
     #Prompt for SharePoint URL     
     $SharePointUrl = Read-Host -Prompt 'Enter your SharePoint Site Collection URL to install OnePlace Solutions Email Columns to'
