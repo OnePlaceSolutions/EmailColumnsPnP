@@ -47,9 +47,27 @@ Try {
         Apply-PnPProvisioningTemplate -Path $Path -Handlers 'Fields' -WarningAction Ignore
     }
     
-    Write-Host "`nSuccess! Please create your Email Content Type in SharePoint in the browser, and add the new columns to that Content Type." -ForegroundColor Green
-    Pause
+    Start-Sleep -Seconds 3
+
+    Try {
+        $emailColumns = $null
+        $emailColumns = Get-PnPField -Group "OnePlace Solutions"
+        #Check if we have 35 columns in our Column Group
+        If ($emailColumns.Count -eq 35) {
+            Write-Host "All Email columns present!"
+            Write-Host "`nSuccess! Please create your Email Content Type in SharePoint in the browser, and add the new columns to that Content Type." -ForegroundColor Green
+            Pause
+        }
+        Else {
+            Throw $_
+        }
+    }
+    Catch {
+        Throw $_
+    }
 }
 Catch {
     Write-Host $error[0].Message
+    Write-Host "`nPlease contact support for further assistance."
+    Pause
 }
