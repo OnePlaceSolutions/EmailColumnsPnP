@@ -41,7 +41,7 @@ Try {
     Write-Host "Applying email columns template to SharePoint:" $SharePointUrl -ForegroundColor Green 
     
     If($PnP_PowerShell) {
-        Invoke-PnPSiteTemplate -Path $Path -Handlers 'Fields' -WarningAction Ignore
+        Invoke-PnPSiteTemplate -Path $Path -Handlers 'Fields'
     }
     Else {
         Apply-PnPProvisioningTemplate -Path $Path -Handlers 'Fields' -WarningAction Ignore
@@ -59,6 +59,8 @@ Try {
             Pause
         }
         Else {
+            Write-Host "Not all Email Columns detected after deployment. Please check Site Columns in the Site Collection."
+            Write-Host "Number of columns detected in 'OnePlace Solutions' group: $($emailColumns.count)"
             Throw $_
         }
     }
