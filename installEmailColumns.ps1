@@ -40,11 +40,20 @@ Try {
     #Apply xml provisioning template to SharePoint
     Write-Host "Applying email columns template to SharePoint:" $SharePointUrl -ForegroundColor Green 
     
-    If($PnP_PowerShell) {
-        Invoke-PnPSiteTemplate -Path $Path -Handlers 'Fields'
-    }
-    Else {
-        Apply-PnPProvisioningTemplate -Path $Path -Handlers 'Fields' -WarningAction Ignore
+    $rawXml = Get-Content $Path
+        
+    #To fix certain compatibility issues between site template types, we will just pull the Field XML entries from the template
+    ForEach ($line in $rawXml) {
+        Try {
+            If (($line.ToString() -match 'Name="Em') -or ($line.ToString() -match 'Name="Doc')) {
+                Add-PnPFieldFromXml -fieldxml $line -ErrorAction Stop
+            }
+        }
+        Catch {
+            If($($_.Exception.Message) -notmatch 'duplicate') {
+                Throw $_
+            }
+        }
     }
     
     Start-Sleep -Seconds 3
