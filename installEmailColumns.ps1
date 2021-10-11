@@ -5,8 +5,17 @@
 #>
 $ErrorActionPreference = 'Stop'
 
-Try {    
-    Set-ExecutionPolicy Bypass -Scope Process 
+Try {
+    Set-ExecutionPolicy Bypass -Scope Process
+}
+Catch {
+    $_
+    Write-Host "`nCouldn't set PowerShell Execution Policy to 'Bypass' for current session."
+    Write-Host "Try entering this command and resolve as necessary, or allow unsigned scripts temporarily: Set-ExecutionPolicy Bypass -Scope Process"
+    Write-Host "Please see this page for more information on PowerShell execution policies: https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.security/set-executionpolicy?view=powershell-7.1"
+}
+
+Try {
     Write-Host "Checking for PnP module..."
     Try{
         $installedPnPModules = Get-InstalledModule -Name "*PnP*"
