@@ -78,7 +78,8 @@ Try {
     }
 }
 Catch {
-    Write-Host $error[0].Message
+    $_
+    Write-Host "`nException Message: $($error[0].Message)"
     Write-Host "`nPlease contact support for further assistance."
     Pause
 }
