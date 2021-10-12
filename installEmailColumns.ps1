@@ -30,7 +30,7 @@ Try {
     $SharePointUrl = Read-Host -Prompt 'Enter your SharePoint Site Collection URL to install OnePlace Solutions Email Columns to'
     
     #Connect to site collection
-    If($SharePointUrl -match ".sharepoint.com/") {
+    If($SharePointUrl -match ".sharepoint.com") {
         Write-Host "Enter SharePoint credentials (your email address for SharePoint Online):" -ForegroundColor Green  
         Connect-PnPOnline -Url $SharePointUrl -UseWebLogin -WarningAction Ignore
     }
