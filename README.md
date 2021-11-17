@@ -24,7 +24,12 @@ This script does **not** deploy Content Types. For Deploying Email Columns and C
     Update-Module SharePointPnPPowerShell<version>
     ```
     
-    This is the command pictured to install the PnP Cmdlets via PowerShell Get:
+    For SharePoint Online please use the new PnP.PowerShell Cmdlets, which are installable via PowerShell Get using:
+    ```
+    Install-Module PnP.PowerShell
+    ```
+    
+    For SharePoint On-Premises 2013/2016/2019 use this command to install the appropriate PnP Cmdlets via PowerShell Get:
     ```
     Install-Module SharePointPnPPowerShell<version>
     ```
@@ -45,7 +50,7 @@ This script does **not** deploy Content Types. For Deploying Email Columns and C
     *PnP Management Shell access does not need to be granted for this script, as it is operating in 'single site mode'.*
     -->
 4.  (Optional, SharePoint Online Only) Content Type Hub Administrator Access
-    If you wish to use the Email Site Columns in a Site Content Type deployed using the [Content Type Gallery in SharePoint Online](https://docs.microsoft.com/en-us/sharepoint/create-customize-content-type), you will need Administrative permissions on the Site Collection that supports this feature at 'https://<yourTenant>.sharepoint.com/sites/contenttypehub'. You can then enter this Site Collection URL in Step 3 of the script and continue on to using the Content Type Gallery after the script has finished.
+    If you wish to use the Email Site Columns in a Site Content Type deployed using the [Content Type Gallery in SharePoint Online](https://docs.microsoft.com/en-us/sharepoint/create-customize-content-type), you will need Administrative permissions on the Site Collection itself that supports this feature at 'https://<yourTenant>.sharepoint.com/sites/contenttypehub' (being a Global Administrator is not sufficient, you must explicitly navigate to this Site Collection and name your account as a Site Collection Administrator/Owner). You can then enter this Site Collection URL in Step 3 of the script and continue on to using the Content Type Gallery after the script has finished.
 
 ## Offline Scripting
 
