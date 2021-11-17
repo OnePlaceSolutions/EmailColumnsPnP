@@ -33,7 +33,7 @@ This script does **not** deploy Content Types. For Deploying Email Columns and C
     ```
     Install-Module SharePointPnPPowerShell<version>
     ```
-    > ![](./README-Images/installPnP.png)
+    > ![](./README-Images/installPnPClassic.png)
 
 <!--4.  (Optional, SharePoint Online Only) (Multi-Tenant supported) [The latest PnP.PowerShell](https://pnp.github.io/powershell/articles/installation.html) installed on the machine you are running the script from. You can run the below command in PowerShell (as Administrator) to install it. 
 
