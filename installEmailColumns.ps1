@@ -70,8 +70,8 @@ Try {
     Try {
         $emailColumns = $null
         $emailColumns = Get-PnPField -Group "OnePlace Solutions"
-        #Check if we have 35 columns in our Column Group
-        If ($emailColumns.Count -eq 35) {
+        #Check if we have 34 columns in our Column Group
+        If ($emailColumns.Count -ge 34) {
             Write-Host "All Email columns present!"
             Write-Host "`nSuccess! Please create your Email Content Type in SharePoint in the browser, and add the new columns to that Content Type." -ForegroundColor Green
             Pause
