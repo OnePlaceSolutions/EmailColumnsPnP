@@ -32,7 +32,7 @@ Try {
     #Connect to site collection
     If($SharePointUrl -match ".sharepoint.com") {
         Write-Host "Enter SharePoint credentials (your email address for SharePoint Online):" -ForegroundColor Green  
-        Connect-PnPOnline -Url $SharePointUrl -UseWebLogin -WarningAction Ignore
+        Connect-PnPOnline -Url $SharePointUrl -Interactive
     }
     Else {
         Write-Host "Enter SharePoint credentials (domain\username for on-premises):" -ForegroundColor Green  
