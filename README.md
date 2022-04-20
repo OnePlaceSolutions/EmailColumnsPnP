@@ -36,7 +36,7 @@ This script does **not** deploy Content Types. For Deploying Email Columns and C
     ```
     Install-Module -Name "PnP.PowerShell"
     ```
-    Note that you will need to ensure you have uninstalled any previous 'Classic' PnP Cmdlets prior to installing this. If you have installed the cmdlets previously using an MSI file these need to be uninstalled from Control Panel, but if you have installed the cmdlets previously using PowerShell Get you can uninstall them with this command (as Administrator):
+    Note that you will need to ensure you have uninstalled any previous 'Classic' or Legacy PnP Cmdlets prior to installing this. If you have installed the cmdlets previously using an MSI file these need to be uninstalled from Control Panel, but if you have installed the cmdlets previously using PowerShell Get you can uninstall them with this command (as Administrator):
 
     ```
     Uninstall-Module "SharePointPnPPowerShellOnline" -Force -AllVersions
