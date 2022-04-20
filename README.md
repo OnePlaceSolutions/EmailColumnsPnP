@@ -18,15 +18,10 @@ This script does **not** deploy Content Types. For Deploying Email Columns and C
 
     > ![](./README-Images/image1.png)
 
-3.  (SharePoint On-Premise and Online) The SharePoint PnP PowerShell cmdlets. 
+3.  (SharePoint On-Premise Only) The Legacy SharePoint PnP PowerShell cmdlets. 
     You will need to install only the the cmdlets that target your version of SharePoint on the machine you are running the script from. If you have installed the cmdlets previously using an MSI file these need to be uninstalled from Control Panel, but if you have installed the cmdlets previously using PowerShell Get you can update them with this command:
     ```
     Update-Module SharePointPnPPowerShell<version>
-    ```
-    
-    For SharePoint Online please use the new PnP.PowerShell Cmdlets, which are installable via PowerShell Get using:
-    ```
-    Install-Module PnP.PowerShell
     ```
     
     For SharePoint On-Premises 2013/2016/2019 use this command to install the appropriate PnP Cmdlets via PowerShell Get:
@@ -35,7 +30,7 @@ This script does **not** deploy Content Types. For Deploying Email Columns and C
     ```
     > ![](./README-Images/installPnPClassic.png)
 
-<!--4.  (Optional, SharePoint Online Only) (Multi-Tenant supported) [The latest PnP.PowerShell](https://pnp.github.io/powershell/articles/installation.html) installed on the machine you are running the script from. You can run the below command in PowerShell (as Administrator) to install it. 
+4.  (SharePoint Online Only) (Multi-Tenant supported) [The latest PnP.PowerShell](https://pnp.github.io/powershell/articles/installation.html) installed on the machine you are running the script from. You can run the below command in PowerShell (as Administrator) to install it. 
 
     Install new PnP.PowerShell Cmdlets:
     ```
@@ -44,12 +39,12 @@ This script does **not** deploy Content Types. For Deploying Email Columns and C
     Note that you will need to ensure you have uninstalled any previous 'Classic' PnP Cmdlets prior to installing this. If you have installed the cmdlets previously using an MSI file these need to be uninstalled from Control Panel, but if you have installed the cmdlets previously using PowerShell Get you can uninstall them with this command (as Administrator):
 
     ```
-    Uninstall-Module 'SharePointPnPPowerShellOnline'
+    Uninstall-Module "SharePointPnPPowerShellOnline" -Force -AllVersions
     ```
     
     *PnP Management Shell access does not need to be granted for this script, as it is operating in 'single site mode'.*
     -->
-4.  (Optional, SharePoint Online Only) Content Type Hub Administrator Access
+5.  (Optional, SharePoint Online Only) Content Type Hub Administrator Access
     If you wish to use the Email Site Columns in a Site Content Type deployed using the [Content Type Gallery in SharePoint Online](https://docs.microsoft.com/en-us/sharepoint/create-customize-content-type), you will need Administrative permissions on the Site Collection itself that supports this feature at 'https://<yourTenant>.sharepoint.com/sites/contenttypehub' (being a Global Administrator is not sufficient, you must explicitly navigate to this Site Collection and name your account as a Site Collection Administrator/Owner). You can then enter this Site Collection URL in Step 3 of the script and continue on to using the Content Type Gallery after the script has finished.
 
 ## Offline Scripting
