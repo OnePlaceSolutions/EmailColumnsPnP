@@ -42,7 +42,7 @@ This script does **not** deploy Content Types. For Deploying Email Columns and C
     Uninstall-Module "SharePointPnPPowerShellOnline" -Force -AllVersions
     ```
     
-    *PnP Management Shell access does not need to be granted for this script, as it is operating in 'single site mode'.*
+    *PnP Management Shell access needs to be granted for this script, but this can be revoked in Azure Active Directory when you no longer need to run the script.*
     -->
 5.  (Optional, SharePoint Online Only) Content Type Hub Administrator Access
     If you wish to use the Email Site Columns in a Site Content Type deployed using the [Content Type Gallery in SharePoint Online](https://docs.microsoft.com/en-us/sharepoint/create-customize-content-type), you will need Administrative permissions on the Site Collection itself that supports this feature at 'https://<yourTenant>.sharepoint.com/sites/contenttypehub' (being a Global Administrator is not sufficient, you must explicitly navigate to this Site Collection and name your account as a Site Collection Administrator/Owner). You can then enter this Site Collection URL in Step 3 of the script and continue on to using the Content Type Gallery after the script has finished.
