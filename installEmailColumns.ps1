@@ -41,7 +41,7 @@ Try {
 
     #Download xml provisioning template
     $WebClient = New-Object System.Net.WebClient   
-    $Url = "https://raw.githubusercontent.com/OnePlaceSolutions/EmailColumnsPnP/master/email-columns.xml"    
+    $Url = "https://cdn.oneplacesolutions.com/assets/sharepoint-provisioning/email-columns.xml"    
     $Path = "$env:temp\email-columns.xml"
 
     Write-Host "Downloading provisioning xml template:" $Path -ForegroundColor Green 
