@@ -18,7 +18,7 @@ This script does **not** deploy Content Types. For Deploying Email Columns and C
 
     > ![](./README-Images/image1.png)
 
-3.  (SharePoint Online Only) (Multi-Tenant supported) [The latest PnP.PowerShell](https://pnp.github.io/powershell/articles/installation.html) installed on the machine you are running the script from. You can run the below command in PowerShell (as Administrator) to install it. 
+3.  (SharePoint Online Only) (Multi-Tenant supported) [PnP.PowerShell](https://pnp.github.io/powershell/articles/installation.html) installed on the machine you are running the script from. You can run the below command in PowerShell (as Administrator) to install it. 
 
     Install new PnP.PowerShell Cmdlets:
     ```
